@@ -1,0 +1,1174 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MARUTI BRASS | Precision Brass Components & Custom Manufacturing Solutions</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brass: {
+                            50: '#fdfbf7',
+                            100: '#fbf4e6',
+                            200: '#f6e5c4',
+                            300: '#eecf98',
+                            400: '#e4b367',
+                            500: '#d9973e',
+                            600: '#ca7a30',
+                            700: '#a85b28',
+                            800: '#874726',
+                            900: '#6f3b23',
+                            950: '#3e1d10',
+                        },
+                        industrial: {
+                            800: '#1e293b',
+                            900: '#0f172a',
+                            950: '#020617',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Font: Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Lucide Icons (Vanilla) -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <!-- AlpineJS for Lightweight Reactivity -->
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .gradient-brass {
+            background: linear-gradient(135deg, #d9973e 0%, #ca7a30 50%, #874726 100%);
+        }
+        .text-gradient-brass {
+            background: linear-gradient(135deg, #f6e5c4 0%, #d9973e 50%, #a85b28 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .bg-grid-pattern {
+            background-image: radial-gradient(rgba(217, 151, 62, 0.15) 1px, transparent 1px);
+            background-size: 24px 24px;
+        }
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0f172a;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #a85b28;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #d9973e;
+        }
+    </style>
+</head>
+<body class="bg-industrial-950 text-slate-100 antialiased selection:bg-brass-500 selection:text-white" x-data="marutiApp()">
+
+    <!-- Top Bar -->
+    <div class="bg-industrial-900 border-b border-slate-800 text-xs text-slate-400 py-2 px-4 sm:px-8">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-2">
+            <div class="flex items-center gap-6">
+                <span class="flex items-center gap-1.5"><i class="fa-solid font-bold fa-location-dot text-brass-400"></i> Jamnagar, Gujarat, India (Brass Capital)</span>
+                <span class="hidden sm:inline-flex items-center gap-1.5"><i class="fa-solid fa-certificate text-brass-400"></i> ISO 9001:2015 & RoHS Certified</span>
+            </div>
+            <div class="flex items-center gap-6">
+                <a href="tel:+919876543210" class="hover:text-brass-300 transition-colors"><i class="fa-solid fa-phone text-brass-400 mr-1"></i> +91 98765 43210</a>
+                <a href="mailto:export@marutibrass.com" class="hover:text-brass-300 transition-colors"><i class="fa-solid fa-envelope text-brass-400 mr-1"></i> export@marutibrass.com</a>
+                <span class="bg-brass-500/20 text-brass-300 px-2 py-0.5 rounded text-[10px] uppercase font-bold tracking-wider">Global Exporter</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Navigation -->
+    <nav class="sticky top-0 z-40 bg-industrial-950/90 backdrop-blur-md border-b border-slate-800/80 transition-all duration-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-8 flex justify-between items-center h-20">
+            <!-- Logo -->
+            <a href="#" class="flex items-center gap-3 group">
+                <div class="w-12 h-12 rounded-xl gradient-brass flex items-center justify-center text-industrial-950 font-black text-2xl shadow-lg shadow-brass-500/20 group-hover:scale-105 transition-transform">
+                    MB
+                </div>
+                <div class="flex flex-col">
+                    <span class="text-xl font-bold tracking-tight text-white flex items-center gap-1">
+                        MARUTI <span class="text-brass-400 font-extrabold">BRASS</span>
+                    </span>
+                    <span class="text-[10px] tracking-widest text-slate-400 uppercase font-medium">PRECISION COMPONENTS MFG</span>
+                </div>
+            </a>
+
+            <!-- Desktop Nav Links -->
+            <div class="hidden lg:flex items-center gap-8 text-sm font-medium text-slate-300">
+                <a href="#about" class="hover:text-brass-400 transition-colors">Company Profile</a>
+                <a href="#products" class="hover:text-brass-400 transition-colors">Products & Parts</a>
+                <a href="#materials" class="hover:text-brass-400 transition-colors">Alloys & Standards</a>
+                <a href="#capabilities" class="hover:text-brass-400 transition-colors">Manufacturing</a>
+                <a href="#calculator" class="hover:text-brass-400 transition-colors">Weight Calculator</a>
+                <a href="#certifications" class="hover:text-brass-400 transition-colors">Quality & Export</a>
+            </div>
+
+            <!-- Header Action Button -->
+            <div class="hidden md:flex items-center gap-4">
+                <a href="#rfq" class="bg-gradient-to-r from-brass-500 to-brass-600 hover:from-brass-400 hover:to-brass-500 text-industrial-950 font-bold px-5 py-2.5 rounded-lg shadow-md shadow-brass-500/20 hover:shadow-brass-500/40 transition-all text-sm flex items-center gap-2">
+                    <i class="fa-solid fa-paper-plane text-xs"></i> Request Instant Quote
+                </a>
+            </div>
+
+            <!-- Mobile Menu Toggle -->
+            <button @click="mobileMenuOpen = !mobileMenuOpen" class="lg:hidden p-2 text-slate-300 hover:text-brass-400">
+                <i class="fa-solid" :class="mobileMenuOpen ? 'fa-xmark text-2xl' : 'fa-bars text-xl'"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Menu Drawer -->
+        <div x-show="mobileMenuOpen" x-transition x-cloak class="lg:hidden bg-industrial-900 border-b border-slate-800 px-6 py-4 space-y-3">
+            <a @click="mobileMenuOpen = false" href="#about" class="block py-2 text-slate-200 hover:text-brass-400 font-medium">Company Profile</a>
+            <a @click="mobileMenuOpen = false" href="#products" class="block py-2 text-slate-200 hover:text-brass-400 font-medium">Products & Parts</a>
+            <a @click="mobileMenuOpen = false" href="#materials" class="block py-2 text-slate-200 hover:text-brass-400 font-medium">Alloys & Standards</a>
+            <a @click="mobileMenuOpen = false" href="#capabilities" class="block py-2 text-slate-200 hover:text-brass-400 font-medium">Manufacturing</a>
+            <a @click="mobileMenuOpen = false" href="#calculator" class="block py-2 text-slate-200 hover:text-brass-400 font-medium">Weight Calculator</a>
+            <a @click="mobileMenuOpen = false" href="#rfq" class="block py-2.5 text-center bg-brass-500 text-industrial-950 font-bold rounded-lg mt-2">Request Quote</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="relative bg-industrial-950 pt-16 pb-24 md:pt-24 md:pb-32 overflow-hidden border-b border-slate-800/60 bg-grid-pattern">
+        <div class="absolute inset-0 bg-gradient-to-b from-transparent via-industrial-950/80 to-industrial-950 pointer-events-none"></div>
+        
+        <!-- Glowing Accent Spheres -->
+        <div class="absolute top-1/4 -left-20 w-80 h-80 bg-brass-600/10 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="absolute bottom-10 right-0 w-96 h-96 bg-brass-500/10 rounded-full blur-3xl pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-8 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                
+                <div class="lg:col-span-7 space-y-6">
+                    <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-slate-900 border border-brass-500/30 text-brass-300 text-xs font-semibold">
+                        <span class="w-2 h-2 rounded-full bg-brass-400 animate-ping"></span>
+                        Engineering Precision Since 1998 • Jamnagar, India
+                    </div>
+
+                    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-tight">
+                        World-Class <br>
+                        <span class="text-gradient-brass">Precision Brass Parts</span> <br>
+                        & Custom Machining
+                    </h1>
+
+                    <p class="text-slate-300 text-base sm:text-lg max-w-2xl font-normal leading-relaxed">
+                        MARUTI BRASS is a premier manufacturer and exporter of high-precision brass components, turned parts, fasteners, electrical fittings, and plumbing hardware. Serving Automotive, Electrical, Plumbing, and Aerospace sectors across 35+ countries.
+                    </p>
+
+                    <div class="flex flex-wrap items-center gap-4 pt-2">
+                        <a href="#rfq" class="bg-gradient-to-r from-brass-500 to-brass-600 hover:from-brass-400 hover:to-brass-500 text-industrial-950 font-extrabold px-7 py-3.5 rounded-xl shadow-lg shadow-brass-500/25 transition-all transform hover:-translate-y-0.5 flex items-center gap-3">
+                            <i class="fa-solid fa-file-contract"></i> Submit Blueprint / RFQ
+                        </a>
+                        <a href="#products" class="bg-slate-900 hover:bg-slate-800 text-slate-200 border border-slate-700 font-semibold px-6 py-3.5 rounded-xl transition-all flex items-center gap-2">
+                            <i class="fa-solid fa-boxes-stacked text-brass-400"></i> Explore Products
+                        </a>
+                    </div>
+
+                    <!-- Key Stats Bar -->
+                    <div class="grid grid-cols-3 gap-4 pt-8 border-t border-slate-800/80">
+                        <div>
+                            <p class="text-2xl sm:text-3xl font-extrabold text-brass-400">25+</p>
+                            <p class="text-xs text-slate-400 mt-1 uppercase font-medium">Years Experience</p>
+                        </div>
+                        <div>
+                            <p class="text-2xl sm:text-3xl font-extrabold text-brass-400">5000+</p>
+                            <p class="text-xs text-slate-400 mt-1 uppercase font-medium">Custom Parts Made</p>
+                        </div>
+                        <div>
+                            <p class="text-2xl sm:text-3xl font-extrabold text-brass-400">±0.005mm</p>
+                            <p class="text-xs text-slate-400 mt-1 uppercase font-medium">Micron Precision</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Hero Graphic / Interactive Card Stack -->
+                <div class="lg:col-span-5">
+                    <div class="relative mx-auto max-w-md lg:max-w-none">
+                        <div class="relative bg-gradient-to-b from-slate-900 to-industrial-900 border border-slate-700/60 rounded-2xl p-6 shadow-2xl shadow-black/80">
+                            <!-- Visual Accent Header -->
+                            <div class="flex justify-between items-center mb-6 border-b border-slate-800 pb-4">
+                                <div class="flex items-center gap-3">
+                                    <div class="w-3 h-3 rounded-full bg-red-500/80"></div>
+                                    <div class="w-3 h-3 rounded-full bg-yellow-500/80"></div>
+                                    <div class="w-3 h-3 rounded-full bg-green-500/80"></div>
+                                </div>
+                                <span class="text-xs font-mono text-slate-400">MB-CNC-VMC-SPEC-2026</span>
+                            </div>
+
+                            <!-- Showcase Product Tech Graphic -->
+                            <div class="relative rounded-xl overflow-hidden bg-slate-950 p-6 border border-slate-800 text-center group">
+                                <div class="w-32 h-32 mx-auto mb-4 rounded-full gradient-brass p-1 flex items-center justify-center shadow-inner">
+                                    <div class="w-full h-full bg-industrial-950 rounded-full flex items-center justify-center text-brass-300">
+                                        <i class="fa-solid fa-gear text-6xl animate-spin-slow"></i>
+                                    </div>
+                                </div>
+                                <h3 class="text-lg font-bold text-white">Precision Turned Component</h3>
+                                <p class="text-xs text-slate-400 mt-1">Lead-Free CW602N / DZR Brass • ISO Threads</p>
+                                
+                                <div class="mt-4 grid grid-cols-2 gap-2 text-left text-xs bg-slate-900/90 p-3 rounded-lg border border-slate-800">
+                                    <div><span class="text-slate-500">Tolerance:</span> <span class="text-brass-300 font-mono font-semibold">±0.005 mm</span></div>
+                                    <div><span class="text-slate-500">Finish:</span> <span class="text-slate-200">Nickel / Tin / Plain</span></div>
+                                    <div><span class="text-slate-500">Thread:</span> <span class="text-slate-200">BSP, NPT, Metric</span></div>
+                                    <div><span class="text-slate-500">MOQ:</span> <span class="text-slate-200">1,000 Pcs</span></div>
+                                </div>
+                            </div>
+
+                            <div class="mt-5 flex justify-between items-center bg-brass-500/10 border border-brass-500/20 rounded-xl p-3 text-xs">
+                                <div class="flex items-center gap-2">
+                                    <i class="fa-solid fa-shield-halved text-brass-400 text-base"></i>
+                                    <span class="text-slate-300 font-medium">100% Quality Inspection Guaranteed</span>
+                                </div>
+                                <span class="text-brass-400 font-bold">RoHS Ready</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </header>
+
+    <!-- Company Profile & About Section -->
+    <section id="about" class="py-20 bg-industrial-900 border-b border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                
+                <div class="lg:col-span-6 space-y-6">
+                    <div class="inline-flex items-center gap-2 text-brass-400 font-bold text-xs uppercase tracking-wider">
+                        <i class="fa-solid fa-industry"></i> About MARUTI BRASS
+                    </div>
+                    <h2 class="text-3xl sm:text-4xl font-bold text-white leading-tight">
+                        Empowering Global Engineering with Superior Quality Brass Components
+                    </h2>
+                    <p class="text-slate-300 leading-relaxed text-sm sm:text-base">
+                        Established in the heart of Jamnagar—widely recognized as the <strong>Brass Capital of India</strong>—MARUTI BRASS has grown from a specialized turning unit into an integrated engineering manufacturer. We operate modern high-speed CNC turning centers, automatic lathes, VMCs, and state-of-the-art testing laboratories.
+                    </p>
+                    <p class="text-slate-400 leading-relaxed text-sm">
+                        Our commitment to stringent quality tolerances, custom metallurgy compounding, and rapid international shipping makes us the preferred OEM partner for top-tier industrial clients across Europe, North America, the Middle East, and Asia-Pacific.
+                    </p>
+
+                    <!-- Key Pillars -->
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4">
+                        <div class="p-4 rounded-xl bg-industrial-950 border border-slate-800 flex gap-3">
+                            <div class="w-10 h-10 rounded-lg bg-brass-500/10 text-brass-400 flex items-center justify-center text-lg font-bold shrink-0">
+                                <i class="fa-solid fa-microscope"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-white text-sm">In-House Metallurgy Lab</h4>
+                                <p class="text-xs text-slate-400 mt-1">Spectrometer testing for precise alloy composition control.</p>
+                            </div>
+                        </div>
+
+                        <div class="p-4 rounded-xl bg-industrial-950 border border-slate-800 flex gap-3">
+                            <div class="w-10 h-10 rounded-lg bg-brass-500/10 text-brass-400 flex items-center justify-center text-lg font-bold shrink-0">
+                                <i class="fa-solid fa-cubes-stacked"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-white text-sm">Scalable Capacity</h4>
+                                <p class="text-xs text-slate-400 mt-1">Over 50 Million precision components produced annually.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Company Highlights Cards / Infra Stack -->
+                <div class="lg:col-span-6 grid grid-cols-2 gap-4">
+                    <div class="bg-industrial-950 p-6 rounded-2xl border border-slate-800 hover:border-brass-500/40 transition-colors">
+                        <div class="text-brass-400 text-3xl font-extrabold mb-2">50,000+</div>
+                        <div class="text-white font-bold text-sm mb-1">Sq. Ft. Facility</div>
+                        <p class="text-xs text-slate-400">Integrated casting, extrusion, machining, and electroplating plant.</p>
+                    </div>
+
+                    <div class="bg-industrial-950 p-6 rounded-2xl border border-slate-800 hover:border-brass-500/40 transition-colors">
+                        <div class="text-brass-400 text-3xl font-extrabold mb-2">35+</div>
+                        <div class="text-white font-bold text-sm mb-1">Export Markets</div>
+                        <p class="text-xs text-slate-400">Serving global OEMs in USA, Germany, UK, UAE, Japan & Australia.</p>
+                    </div>
+
+                    <div class="bg-industrial-950 p-6 rounded-2xl border border-slate-800 hover:border-brass-500/40 transition-colors">
+                        <div class="text-brass-400 text-3xl font-extrabold mb-2">100%</div>
+                        <div class="text-white font-bold text-sm mb-1">Traceability</div>
+                        <p class="text-xs text-slate-400">Complete raw material mill certificates & dimensional inspection reports.</p>
+                    </div>
+
+                    <div class="bg-industrial-950 p-6 rounded-2xl border border-slate-800 hover:border-brass-500/40 transition-colors">
+                        <div class="text-brass-400 text-3xl font-extrabold mb-2">Zero</div>
+                        <div class="text-white font-bold text-sm mb-1">Defect Vision</div>
+                        <p class="text-xs text-slate-400">ISO 9001 quality protocols with optical sorting machine checks.</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive Products Catalog Section -->
+    <section id="products" class="py-20 bg-industrial-950 border-b border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-8">
+            
+            <div class="text-center max-w-3xl mx-auto mb-12 space-y-3">
+                <span class="text-brass-400 font-bold text-xs uppercase tracking-wider">Product Showcase</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-white">Comprehensive Brass Engineering Range</h2>
+                <p class="text-slate-400 text-sm sm:text-base">Filter through our high-demand precision brass parts catalog or request custom manufacturing based on your CAD drawings.</p>
+            </div>
+
+            <!-- Filters & Search Bar -->
+            <div class="bg-industrial-900 p-4 rounded-2xl border border-slate-800 mb-8 flex flex-col md:flex-row gap-4 justify-between items-center">
+                <!-- Search Input -->
+                <div class="relative w-full md:w-80">
+                    <i class="fa-solid fa-magnifying-glass absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400 text-sm"></i>
+                    <input type="text" x-model="searchQuery" placeholder="Search components, alloys, sizes..." class="w-full bg-industrial-950 border border-slate-700 rounded-xl pl-10 pr-4 py-2 text-sm text-slate-100 placeholder-slate-500 focus:outline-none focus:border-brass-500">
+                </div>
+
+                <!-- Category Pills -->
+                <div class="flex flex-wrap items-center gap-2 w-full md:w-auto overflow-x-auto pb-2 md:pb-0">
+                    <template x-for="cat in categories" :key="cat">
+                        <button 
+                            @click="selectedCategory = cat"
+                            :class="selectedCategory === cat ? 'bg-brass-500 text-industrial-950 font-bold' : 'bg-industrial-950 text-slate-300 hover:bg-slate-800 border border-slate-800'"
+                            class="px-4 py-2 rounded-xl text-xs whitespace-nowrap transition-all">
+                            <span x-text="cat"></span>
+                        </button>
+                    </template>
+                </div>
+            </div>
+
+            <!-- Products Grid -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                <template x-for="product in filteredProducts" :key="product.id">
+                    <div class="bg-industrial-900 rounded-2xl border border-slate-800 hover:border-brass-500/50 transition-all flex flex-col overflow-hidden group hover:shadow-xl hover:shadow-brass-500/5">
+                        
+                        <!-- Product Icon / Visual Block -->
+                        <div class="h-48 bg-slate-950 p-6 flex items-center justify-center relative border-b border-slate-800/80 group-hover:bg-industrial-950 transition-colors">
+                            <div class="w-20 h-20 rounded-2xl bg-brass-500/10 border border-brass-500/20 flex items-center justify-center text-brass-400 text-4xl group-hover:scale-110 transition-transform">
+                                <i :class="product.icon"></i>
+                            </div>
+                            <span class="absolute top-3 left-3 bg-slate-900 border border-slate-700 text-slate-300 text-[10px] uppercase font-mono px-2 py-0.5 rounded" x-text="product.category"></span>
+                            <span class="absolute top-3 right-3 text-xs text-brass-400 font-mono font-bold" x-text="product.std"></span>
+                        </div>
+
+                        <!-- Content -->
+                        <div class="p-5 flex-1 flex flex-col justify-between space-y-4">
+                            <div>
+                                <h3 class="text-lg font-bold text-white group-hover:text-brass-300 transition-colors" x-text="product.title"></h3>
+                                <p class="text-xs text-slate-400 mt-2 line-clamp-2" x-text="product.description"></p>
+                            </div>
+
+                            <!-- Spec Pills -->
+                            <div class="space-y-2 pt-2 border-t border-slate-800/80 text-xs">
+                                <div class="flex justify-between text-slate-400">
+                                    <span>Material Grade:</span>
+                                    <span class="text-slate-200 font-semibold" x-text="product.material"></span>
+                                </div>
+                                <div class="flex justify-between text-slate-400">
+                                    <span>Size Range:</span>
+                                    <span class="text-slate-200 font-semibold" x-text="product.sizes"></span>
+                                </div>
+                            </div>
+
+                            <!-- Actions -->
+                            <div class="pt-2 flex items-center gap-2">
+                                <button @click="openProductModal(product)" class="flex-1 bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-semibold py-2.5 rounded-lg border border-slate-700 transition-colors flex items-center justify-center gap-1.5">
+                                    <i class="fa-solid fa-circle-info text-brass-400"></i> Details & Specs
+                                </button>
+                                <button @click="addToRfq(product.title)" class="bg-brass-500 hover:bg-brass-400 text-industrial-950 p-2.5 rounded-lg font-bold text-xs transition-colors" title="Add to RFQ">
+                                    <i class="fa-solid fa-plus"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                    </div>
+                </template>
+            </div>
+
+            <!-- Empty Search State -->
+            <div x-show="filteredProducts.length === 0" class="text-center py-16 bg-industrial-900 rounded-2xl border border-slate-800 mt-6">
+                <i class="fa-solid fa-magnifying-glass text-4xl text-slate-600 mb-3"></i>
+                <h3 class="text-lg font-bold text-white">No products found matching criteria</h3>
+                <p class="text-xs text-slate-400 mt-1">Try resetting your search or category filter, or request a custom component blueprint.</p>
+                <button @click="searchQuery = ''; selectedCategory = 'All'" class="mt-4 bg-brass-500 text-industrial-950 text-xs font-bold px-4 py-2 rounded-lg">Reset Filters</button>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Brass Alloys & Standards Matrix Section -->
+    <section id="materials" class="py-20 bg-industrial-900 border-b border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-8">
+            
+            <div class="text-center max-w-3xl mx-auto mb-12 space-y-3">
+                <span class="text-brass-400 font-bold text-xs uppercase tracking-wider">Metallurgy & Engineering Standards</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-white">Brass Alloys & International Grades</h2>
+                <p class="text-slate-400 text-sm">We process a wide range of free-cutting, forging, lead-free, and corrosion-resistant brass alloys to exact chemical composition standards.</p>
+            </div>
+
+            <!-- Interactive Alloy Selector Card Container -->
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+                
+                <!-- Alloy List Selector -->
+                <div class="lg:col-span-5 space-y-3">
+                    <template x-for="(alloy, idx) in alloys" :key="alloy.code">
+                        <div 
+                            @click="selectedAlloy = alloy"
+                            :class="selectedAlloy.code === alloy.code ? 'bg-industrial-950 border-brass-500 shadow-lg' : 'bg-industrial-950/50 border-slate-800 hover:border-slate-700'"
+                            class="p-4 rounded-xl border cursor-pointer transition-all flex items-center justify-between">
+                            
+                            <div class="flex items-center gap-3">
+                                <div class="w-10 h-10 rounded-lg flex items-center justify-center font-bold text-xs" :class="selectedAlloy.code === alloy.code ? 'bg-brass-500 text-industrial-950' : 'bg-slate-800 text-slate-300'">
+                                    <span x-text="alloy.code.substring(0,3)"></span>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-white text-sm" x-text="alloy.name"></h4>
+                                    <p class="text-xs text-slate-400" x-text="alloy.standard"></p>
+                                </div>
+                            </div>
+
+                            <i class="fa-solid fa-chevron-right text-xs" :class="selectedAlloy.code === alloy.code ? 'text-brass-400' : 'text-slate-600'"></i>
+                        </div>
+                    </template>
+                </div>
+
+                <!-- Alloy Specifications Detail Display -->
+                <div class="lg:col-span-7 bg-industrial-950 rounded-2xl border border-slate-800 p-6 sm:p-8">
+                    <div class="flex flex-wrap justify-between items-start gap-4 pb-6 border-b border-slate-800">
+                        <div>
+                            <span class="bg-brass-500/10 text-brass-400 text-xs font-mono font-bold px-2.5 py-1 rounded border border-brass-500/20" x-text="selectedAlloy.code"></span>
+                            <h3 class="text-2xl font-bold text-white mt-2" x-text="selectedAlloy.name"></h3>
+                            <p class="text-xs text-slate-400 mt-1" x-text="selectedAlloy.standard"></p>
+                        </div>
+                        <a href="#rfq" class="bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-semibold px-4 py-2 rounded-lg border border-slate-700 transition-colors">
+                            Request Alloy Sample
+                        </a>
+                    </div>
+
+                    <div class="py-6 space-y-6">
+                        <div>
+                            <h5 class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-2">Primary Applications & Characteristics</h5>
+                            <p class="text-sm text-slate-200 leading-relaxed" x-text="selectedAlloy.desc"></p>
+                        </div>
+
+                        <!-- Chemical Composition Breakdown -->
+                        <div>
+                            <h5 class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-3">Nominal Chemical Composition (%)</h5>
+                            <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
+                                <template x-for="(val, element) in selectedAlloy.composition" :key="element">
+                                    <div class="bg-industrial-900 p-3 rounded-xl border border-slate-800">
+                                        <div class="text-xs text-slate-500 uppercase font-bold" x-text="element"></div>
+                                        <div class="text-sm font-mono font-bold text-brass-300 mt-0.5" x-text="val"></div>
+                                    </div>
+                                </template>
+                            </div>
+                        </div>
+
+                        <!-- Key Properties List -->
+                        <div>
+                            <h5 class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-3">Mechanical & Technical Attributes</h5>
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs">
+                                <template x-for="feature in selectedAlloy.features" :key="feature">
+                                    <div class="flex items-center gap-2 text-slate-300 bg-industrial-900/60 p-2.5 rounded-lg border border-slate-800/60">
+                                        <i class="fa-solid fa-circle-check text-brass-400"></i>
+                                        <span x-text="feature"></span>
+                                    </div>
+                                </template>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Manufacturing Capabilities & Machinery Section -->
+    <section id="capabilities" class="py-20 bg-industrial-950 border-b border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-8">
+            
+            <div class="text-center max-w-3xl mx-auto mb-12 space-y-3">
+                <span class="text-brass-400 font-bold text-xs uppercase tracking-wider">Manufacturing Excellence</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-white">End-to-End Production Capabilities</h2>
+                <p class="text-slate-400 text-sm">From raw brass rod extrusion to precision multi-axis CNC machining, surface finishing, and automated optical inspection.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <!-- Capability 1 -->
+                <div class="bg-industrial-900 rounded-2xl p-6 border border-slate-800 hover:border-brass-500/40 transition-colors space-y-4">
+                    <div class="w-12 h-12 rounded-xl bg-brass-500/10 border border-brass-500/20 text-brass-400 flex items-center justify-center text-xl font-bold">
+                        <i class="fa-solid fa-microchip"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-white">CNC & VMC Turning Centers</h3>
+                    <p class="text-xs text-slate-400 leading-relaxed">
+                        High-speed Swiss-type sliding head automatics and multi-axis CNC lathes capable of maintaining tight tolerances up to ±0.005mm for complex automotive and medical parts.
+                    </p>
+                    <ul class="text-xs text-slate-300 space-y-1.5 pt-2 border-t border-slate-800">
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-angle-right text-brass-400"></i> Outer Diameter: 1.0mm to 150mm</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-angle-right text-brass-400"></i> Live tooling for milling & cross-drilling</li>
+                    </ul>
+                </div>
+
+                <!-- Capability 2 -->
+                <div class="bg-industrial-900 rounded-2xl p-6 border border-slate-800 hover:border-brass-500/40 transition-colors space-y-4">
+                    <div class="w-12 h-12 rounded-xl bg-brass-500/10 border border-brass-500/20 text-brass-400 flex items-center justify-center text-xl font-bold">
+                        <i class="fa-solid fa-fire-burner"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-white">Hot Forging & Pressing</h3>
+                    <p class="text-xs text-slate-400 leading-relaxed">
+                        Heavy friction screw presses and automatic temperature-controlled induction heaters for dense, pore-free brass forgings used in high-pressure gas valves and plumbing.
+                    </p>
+                    <ul class="text-xs text-slate-300 space-y-1.5 pt-2 border-t border-slate-800">
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-angle-right text-brass-400"></i> Press Capacity: Up to 350 Tons</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-angle-right text-brass-400"></i> Complex hollow and solid forgings</li>
+                    </ul>
+                </div>
+
+                <!-- Capability 3 -->
+                <div class="bg-industrial-900 rounded-2xl p-6 border border-slate-800 hover:border-brass-500/40 transition-colors space-y-4">
+                    <div class="w-12 h-12 rounded-xl bg-brass-500/10 border border-brass-500/20 text-brass-400 flex items-center justify-center text-xl font-bold">
+                        <i class="fa-solid fa-layer-group"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-white">Electroplating & Finishing</h3>
+                    <p class="text-xs text-slate-400 leading-relaxed">
+                        Fully automated plating lines providing uniform coatings for corrosion protection, electrical conductivity, and premium architectural aesthetics.
+                    </p>
+                    <ul class="text-xs text-slate-300 space-y-1.5 pt-2 border-t border-slate-800">
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-angle-right text-brass-400"></i> Finishes: Nickel, Tin, Chrome, Silver, Satin</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-angle-right text-brass-400"></i> Salt-spray test verified up to 96+ hrs</li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Weight Estimator Utility Section -->
+    <section id="calculator" class="py-20 bg-industrial-900 border-b border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                
+                <div class="lg:col-span-5 space-y-4">
+                    <div class="inline-flex items-center gap-2 text-brass-400 font-bold text-xs uppercase tracking-wider">
+                        <i class="fa-solid fa-calculator"></i> Buyer Utility Tool
+                    </div>
+                    <h2 class="text-3xl font-extrabold text-white">Brass Raw Material Weight Calculator</h2>
+                    <p class="text-slate-400 text-sm leading-relaxed">
+                        Estimate the weight of brass rods, hex bars, tubes, or flat strips required for your production run. Helps buyers calculate shipping weight and raw material estimates instantly.
+                    </p>
+                    <div class="p-4 rounded-xl bg-industrial-950 border border-slate-800 text-xs text-slate-400 space-y-2">
+                        <p class="flex items-center gap-2 text-slate-200 font-semibold"><i class="fa-solid fa-circle-info text-brass-400"></i> Standard Brass Density</p>
+                        <p>Calculated based on average density of free-cutting brass (8.45 g/cm³ / 0.305 lbs/in³).</p>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-7 bg-industrial-950 rounded-2xl border border-slate-800 p-6 sm:p-8">
+                    
+                    <!-- Shape Tabs -->
+                    <div class="grid grid-cols-3 gap-2 mb-6">
+                        <button @click="calcShape = 'round'" :class="calcShape === 'round' ? 'bg-brass-500 text-industrial-950 font-bold' : 'bg-industrial-900 text-slate-300'" class="py-2.5 rounded-xl text-xs transition-colors flex items-center justify-center gap-2">
+                            <i class="fa-solid fa-circle"></i> Round Rod
+                        </button>
+                        <button @click="calcShape = 'hex'" :class="calcShape === 'hex' ? 'bg-brass-500 text-industrial-950 font-bold' : 'bg-industrial-900 text-slate-300'" class="py-2.5 rounded-xl text-xs transition-colors flex items-center justify-center gap-2">
+                            <i class="fa-solid fa-shapes"></i> Hex Rod
+                        </button>
+                        <button @click="calcShape = 'flat'" :class="calcShape === 'flat' ? 'bg-brass-500 text-industrial-950 font-bold' : 'bg-industrial-900 text-slate-300'" class="py-2.5 rounded-xl text-xs transition-colors flex items-center justify-center gap-2">
+                            <i class="fa-solid fa-vector-square"></i> Flat Bar
+                        </button>
+                    </div>
+
+                    <!-- Inputs -->
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        
+                        <div x-show="calcShape === 'round'">
+                            <label class="text-xs font-semibold text-slate-400 mb-1.5 block">Diameter (mm)</label>
+                            <input type="number" x-model.number="calcDiameter" class="w-full bg-industrial-900 border border-slate-700 rounded-xl px-4 py-2 text-sm text-white focus:outline-none focus:border-brass-500">
+                        </div>
+
+                        <div x-show="calcShape === 'hex'">
+                            <label class="text-xs font-semibold text-slate-400 mb-1.5 block">Across Flat - A/F (mm)</label>
+                            <input type="number" x-model.number="calcHexWidth" class="w-full bg-industrial-900 border border-slate-700 rounded-xl px-4 py-2 text-sm text-white focus:outline-none focus:border-brass-500">
+                        </div>
+
+                        <div x-show="calcShape === 'flat'">
+                            <label class="text-xs font-semibold text-slate-400 mb-1.5 block">Width (mm)</label>
+                            <input type="number" x-model.number="calcWidth" class="w-full bg-industrial-900 border border-slate-700 rounded-xl px-4 py-2 text-sm text-white focus:outline-none focus:border-brass-500">
+                        </div>
+
+                        <div x-show="calcShape === 'flat'">
+                            <label class="text-xs font-semibold text-slate-400 mb-1.5 block">Thickness (mm)</label>
+                            <input type="number" x-model.number="calcThickness" class="w-full bg-industrial-900 border border-slate-700 rounded-xl px-4 py-2 text-sm text-white focus:outline-none focus:border-brass-500">
+                        </div>
+
+                        <div>
+                            <label class="text-xs font-semibold text-slate-400 mb-1.5 block">Length (Meters)</label>
+                            <input type="number" x-model.number="calcLength" class="w-full bg-industrial-900 border border-slate-700 rounded-xl px-4 py-2 text-sm text-white focus:outline-none focus:border-brass-500">
+                        </div>
+
+                        <div>
+                            <label class="text-xs font-semibold text-slate-400 mb-1.5 block">Total Quantity (Pieces)</label>
+                            <input type="number" x-model.number="calcQty" class="w-full bg-industrial-900 border border-slate-700 rounded-xl px-4 py-2 text-sm text-white focus:outline-none focus:border-brass-500">
+                        </div>
+
+                    </div>
+
+                    <!-- Calculated Output Display -->
+                    <div class="mt-6 p-5 bg-gradient-to-r from-industrial-900 to-slate-900 rounded-xl border border-brass-500/30 flex flex-col sm:flex-row justify-between items-center gap-4">
+                        <div>
+                            <span class="text-xs text-slate-400 uppercase font-semibold">Estimated Total Brass Weight</span>
+                            <div class="text-3xl font-extrabold text-brass-400 mt-1" x-text="calculateWeight() + ' Kg'"></div>
+                            <span class="text-[11px] text-slate-500" x-text="'(~ ' + (calculateWeight() * 2.20462).toFixed(2) + ' lbs)'"></span>
+                        </div>
+                        <button @click="addToRfq('Calculated Stock Request (' + calculateWeight() + ' kg)')" class="bg-brass-500 hover:bg-brass-400 text-industrial-950 font-bold px-5 py-2.5 rounded-xl text-xs transition-colors">
+                            Request Price for this Size
+                        </button>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Quality Assurance & Export Section -->
+    <section id="certifications" class="py-20 bg-industrial-950 border-b border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-8">
+            
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                
+                <div class="lg:col-span-6 space-y-6">
+                    <span class="text-brass-400 font-bold text-xs uppercase tracking-wider">Quality Management</span>
+                    <h2 class="text-3xl sm:text-4xl font-extrabold text-white">Uncompromised Testing & Global Compliance</h2>
+                    <p class="text-slate-300 text-sm sm:text-base leading-relaxed">
+                        Every batch of raw brass rod and finished component undergoes rigorous physical, dimensional, and chemical testing prior to dispatch. We strictly comply with global environmental standards.
+                    </p>
+
+                    <!-- Badges Grid -->
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="p-4 bg-industrial-900 rounded-xl border border-slate-800 flex items-center gap-3">
+                            <i class="fa-solid fa-award text-2xl text-brass-400"></i>
+                            <div>
+                                <h4 class="font-bold text-white text-xs">ISO 9001:2015</h4>
+                                <p class="text-[11px] text-slate-400">Quality Management Systems</p>
+                            </div>
+                        </div>
+
+                        <div class="p-4 bg-industrial-900 rounded-xl border border-slate-800 flex items-center gap-3">
+                            <i class="fa-solid fa-leaf text-2xl text-brass-400"></i>
+                            <div>
+                                <h4 class="font-bold text-white text-xs">RoHS & REACH</h4>
+                                <p class="text-[11px] text-slate-400">Lead-Free Hazardous Substance Free</p>
+                            </div>
+                        </div>
+
+                        <div class="p-4 bg-industrial-900 rounded-xl border border-slate-800 flex items-center gap-3">
+                            <i class="fa-solid fa-vial text-2xl text-brass-400"></i>
+                            <div>
+                                <h4 class="font-bold text-white text-xs">Optical CMM & Gauging</h4>
+                                <p class="text-[11px] text-slate-400">Profile Projectors & Plug Gauges</p>
+                            </div>
+                        </div>
+
+                        <div class="p-4 bg-industrial-900 rounded-xl border border-slate-800 flex items-center gap-3">
+                            <i class="fa-solid fa-box-archive text-2xl text-brass-400"></i>
+                            <div>
+                                <h4 class="font-bold text-white text-xs">Export Seaworthy Packaging</h4>
+                                <p class="text-[11px] text-slate-400">VCI Anti-Corrosion Bags & Pallets</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Export Destinations Global Card -->
+                <div class="lg:col-span-6 bg-industrial-900 rounded-2xl border border-slate-800 p-8 text-center space-y-6">
+                    <div class="w-16 h-16 mx-auto rounded-full bg-brass-500/10 border border-brass-500/20 text-brass-400 flex items-center justify-center text-3xl">
+                        <i class="fa-solid fa-earth-americas"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white">Global Export Footprint</h3>
+                    <p class="text-xs text-slate-400 max-w-md mx-auto">
+                        Regular container shipments to industrial ports worldwide with seamless customs documentation, Certificate of Origin, and Mill Test Certificates (MTC).
+                    </p>
+
+                    <div class="flex flex-wrap justify-center gap-2 pt-2">
+                        <span class="bg-slate-950 border border-slate-800 text-slate-300 text-xs px-3 py-1.5 rounded-lg">🇺🇸 United States</span>
+                        <span class="bg-slate-950 border border-slate-800 text-slate-300 text-xs px-3 py-1.5 rounded-lg">🇩🇪 Germany</span>
+                        <span class="bg-slate-950 border border-slate-800 text-slate-300 text-xs px-3 py-1.5 rounded-lg">🇬🇧 United Kingdom</span>
+                        <span class="bg-slate-950 border border-slate-800 text-slate-300 text-xs px-3 py-1.5 rounded-lg">🇦🇪 United Arab Emirates</span>
+                        <span class="bg-slate-950 border border-slate-800 text-slate-300 text-xs px-3 py-1.5 rounded-lg">🇯🇵 Japan</span>
+                        <span class="bg-slate-950 border border-slate-800 text-slate-300 text-xs px-3 py-1.5 rounded-lg">🇦🇺 Australia</span>
+                        <span class="bg-slate-950 border border-slate-800 text-slate-300 text-xs px-3 py-1.5 rounded-lg">🇮🇹 Italy</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive RFQ Form Section -->
+    <section id="rfq" class="py-20 bg-industrial-900 border-b border-slate-800">
+        <div class="max-w-5xl mx-auto px-4 sm:px-8">
+            
+            <div class="bg-industrial-950 rounded-3xl border border-brass-500/30 p-8 sm:p-12 shadow-2xl relative overflow-hidden">
+                <div class="absolute -right-20 -top-20 w-64 h-64 bg-brass-500/10 rounded-full blur-3xl pointer-events-none"></div>
+
+                <div class="text-center max-w-2xl mx-auto mb-10 space-y-2">
+                    <span class="bg-brass-500/10 text-brass-400 text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full border border-brass-500/20">Instant Inquiry</span>
+                    <h2 class="text-3xl font-extrabold text-white">Request a Custom Quote / RFQ</h2>
+                    <p class="text-slate-400 text-xs sm:text-sm">Submit your technical drawings, alloy specifications, and quantity requirements. Our engineering team responds within 24 hours.</p>
+                </div>
+
+                <!-- Form -->
+                <form @submit.prevent="submitRfq()" class="space-y-6">
+                    
+                    <!-- Selected RFQ Basket Badge -->
+                    <div x-show="rfqItems.length > 0" class="bg-industrial-900 border border-brass-500/30 p-3 rounded-xl flex items-center justify-between">
+                        <span class="text-xs text-slate-300 flex items-center gap-2">
+                            <i class="fa-solid fa-basket-shopping text-brass-400"></i> Included Components: <strong class="text-brass-300" x-text="rfqItems.join(', ')"></strong>
+                        </span>
+                        <button type="button" @click="rfqItems = []" class="text-slate-500 hover:text-red-400 text-xs"><i class="fa-solid fa-xmark"></i> Clear</button>
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                        <div>
+                            <label class="block text-xs font-semibold text-slate-300 mb-2">Full Name *</label>
+                            <input type="text" x-model="form.name" required placeholder="e.g. John Doe" class="w-full bg-industrial-900 border border-slate-800 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-brass-500">
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-semibold text-slate-300 mb-2">Company Name *</label>
+                            <input type="text" x-model="form.company" required placeholder="e.g. Acme Engineering Corp" class="w-full bg-industrial-900 border border-slate-800 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-brass-500">
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-semibold text-slate-300 mb-2">Work Email *</label>
+                            <input type="email" x-model="form.email" required placeholder="e.g. john@acme.com" class="w-full bg-industrial-900 border border-slate-800 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-brass-500">
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-semibold text-slate-300 mb-2">Phone / WhatsApp *</label>
+                            <input type="tel" x-model="form.phone" required placeholder="e.g. +1 555 019 2831" class="w-full bg-industrial-900 border border-slate-800 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-brass-500">
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-semibold text-slate-300 mb-2">Preferred Material Grade</label>
+                            <select x-model="form.alloy" class="w-full bg-industrial-900 border border-slate-800 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-brass-500">
+                                <option value="CW614N">CW614N / CZ121 Free Cutting</option>
+                                <option value="CW602N">CW602N / DZR Corrosion Resistant</option>
+                                <option value="CW511L">CW511L Lead-Free Brass</option>
+                                <option value="Forging">Forging Brass (IS 6912)</option>
+                                <option value="Custom">Other / Custom Alloy Specification</option>
+                            </select>
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-semibold text-slate-300 mb-2">Estimated Order Quantity</label>
+                            <input type="text" x-model="form.quantity" placeholder="e.g. 5,000 Pcs / Monthly" class="w-full bg-industrial-900 border border-slate-800 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-brass-500">
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-semibold text-slate-300 mb-2">Technical Description / Special Specifications</label>
+                        <textarea x-model="form.message" rows="4" placeholder="Provide dimensions, thread types (BSP/NPT), plating details, surface finish requirements, or drawing references..." class="w-full bg-industrial-900 border border-slate-800 rounded-xl p-4 text-sm text-white focus:outline-none focus:border-brass-500"></textarea>
+                    </div>
+
+                    <!-- File Upload Mock -->
+                    <div class="border-2 border-dashed border-slate-800 rounded-2xl p-6 text-center bg-industrial-900/50 hover:border-brass-500/50 transition-colors">
+                        <i class="fa-solid fa-cloud-arrow-up text-3xl text-brass-400 mb-2"></i>
+                        <p class="text-xs text-slate-300 font-semibold">Attach CAD Drawing / Blueprint (PDF, DWG, STEP, PNG)</p>
+                        <p class="text-[11px] text-slate-500 mt-1">Maximum file size 25MB • Confidentiality Guaranteed (NDA Available)</p>
+                        <input type="file" class="hidden" id="fileUpload">
+                        <label for="fileUpload" class="inline-block mt-3 bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-semibold px-4 py-2 rounded-lg cursor-pointer transition-colors">Select Blueprint File</label>
+                    </div>
+
+                    <!-- Submit Button -->
+                    <button type="submit" class="w-full bg-gradient-to-r from-brass-500 to-brass-600 hover:from-brass-400 hover:to-brass-500 text-industrial-950 font-extrabold py-4 rounded-xl shadow-xl shadow-brass-500/20 text-base transition-all flex items-center justify-center gap-2">
+                        <i class="fa-solid fa-paper-plane"></i> Submit Request for Quotation
+                    </button>
+                </form>
+
+                <!-- Confirmation Alert Toast -->
+                <div x-show="formSubmitted" x-transition class="mt-6 p-4 bg-emerald-500/10 border border-emerald-500/30 rounded-xl text-emerald-400 text-xs text-center flex items-center justify-center gap-2">
+                    <i class="fa-solid fa-circle-check text-base"></i> Thank you! Your RFQ has been logged. Our sales engineers will contact you within 24 business hours.
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer class="bg-industrial-950 text-slate-400 py-16 border-t border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 pb-12 border-b border-slate-800/80">
+                
+                <!-- Company Info -->
+                <div class="lg:col-span-2 space-y-4">
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-xl gradient-brass flex items-center justify-center text-industrial-950 font-black text-xl">
+                            MB
+                        </div>
+                        <span class="text-xl font-bold text-white tracking-tight">MARUTI <span class="text-brass-400">BRASS</span></span>
+                    </div>
+                    <p class="text-xs text-slate-400 leading-relaxed max-w-sm">
+                        Leading manufacturer & global supplier of precision turned brass components, industrial fittings, electrical terminals, and custom machined parts engineered in Jamnagar, India.
+                    </p>
+                    <div class="flex items-center gap-3 pt-2">
+                        <a href="#" class="w-8 h-8 rounded-lg bg-industrial-900 border border-slate-800 flex items-center justify-center text-slate-400 hover:text-brass-400 hover:border-brass-500/40 transition-colors"><i class="fa-brands fa-linkedin-in text-xs"></i></a>
+                        <a href="#" class="w-8 h-8 rounded-lg bg-industrial-900 border border-slate-800 flex items-center justify-center text-slate-400 hover:text-brass-400 hover:border-brass-500/40 transition-colors"><i class="fa-brands fa-twitter text-xs"></i></a>
+                        <a href="#" class="w-8 h-8 rounded-lg bg-industrial-900 border border-slate-800 flex items-center justify-center text-slate-400 hover:text-brass-400 hover:border-brass-500/40 transition-colors"><i class="fa-brands fa-facebook-f text-xs"></i></a>
+                        <a href="#" class="w-8 h-8 rounded-lg bg-industrial-900 border border-slate-800 flex items-center justify-center text-slate-400 hover:text-brass-400 hover:border-brass-500/40 transition-colors"><i class="fa-brands fa-youtube text-xs"></i></a>
+                    </div>
+                </div>
+
+                <!-- Quick Links -->
+                <div>
+                    <h4 class="text-xs font-bold text-white uppercase tracking-wider mb-4">Quick Navigation</h4>
+                    <ul class="space-y-2 text-xs">
+                        <li><a href="#about" class="hover:text-brass-400 transition-colors">Company Profile</a></li>
+                        <li><a href="#products" class="hover:text-brass-400 transition-colors">Products Catalog</a></li>
+                        <li><a href="#materials" class="hover:text-brass-400 transition-colors">Alloys & Specs</a></li>
+                        <li><a href="#capabilities" class="hover:text-brass-400 transition-colors">CNC Machining</a></li>
+                        <li><a href="#calculator" class="hover:text-brass-400 transition-colors">Brass Weight Calculator</a></li>
+                    </ul>
+                </div>
+
+                <!-- Products -->
+                <div>
+                    <h4 class="text-xs font-bold text-white uppercase tracking-wider mb-4">Core Range</h4>
+                    <ul class="space-y-2 text-xs">
+                        <li><a href="#products" class="hover:text-brass-400 transition-colors">Brass Electrical Accessories</a></li>
+                        <li><a href="#products" class="hover:text-brass-400 transition-colors">Cable Glands & Terminals</a></li>
+                        <li><a href="#products" class="hover:text-brass-400 transition-colors">Sanitary & Plumbing Fittings</a></li>
+                        <li><a href="#products" class="hover:text-brass-400 transition-colors">Brass Threaded Inserts</a></li>
+                        <li><a href="#products" class="hover:text-brass-400 transition-colors">Fasteners, Nuts & Bolts</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact Info -->
+                <div>
+                    <h4 class="text-xs font-bold text-white uppercase tracking-wider mb-4">Factory Address</h4>
+                    <ul class="space-y-2.5 text-xs">
+                        <li class="flex items-start gap-2">
+                            <i class="fa-solid fa-location-dot text-brass-400 mt-0.5"></i>
+                            <span>GIDC Phase 3, Patel Nagar, Jamnagar - 361004, Gujarat, India</span>
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <i class="fa-solid fa-phone text-brass-400"></i>
+                            <span>+91 (288) 256-7890</span>
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <i class="fa-solid fa-envelope text-brass-400"></i>
+                            <span>export@marutibrass.com</span>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <div class="pt-8 flex flex-col sm:flex-row justify-between items-center gap-4 text-xs text-slate-500">
+                <p>© 2026 MARUTI BRASS Industries. All rights reserved.</p>
+                <div class="flex gap-6">
+                    <a href="#" class="hover:underline">Privacy Policy</a>
+                    <a href="#" class="hover:underline">Terms of Supply</a>
+                    <a href="#" class="hover:underline">ISO Certification</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Product Specification Modal -->
+    <div x-show="modalOpen" x-transition x-cloak class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm">
+        <div @click.away="modalOpen = false" class="bg-industrial-900 border border-slate-800 rounded-2xl max-w-2xl w-full p-6 space-y-6 shadow-2xl relative">
+            
+            <button @click="modalOpen = false" class="absolute top-4 right-4 text-slate-400 hover:text-white p-2">
+                <i class="fa-solid fa-xmark text-xl"></i>
+            </button>
+
+            <div class="flex items-center gap-4 border-b border-slate-800 pb-4">
+                <div class="w-14 h-14 rounded-xl bg-brass-500/10 border border-brass-500/20 text-brass-400 flex items-center justify-center text-3xl">
+                    <i :class="activeModalProduct.icon"></i>
+                </div>
+                <div>
+                    <span class="text-xs text-brass-400 font-mono" x-text="activeModalProduct.category"></span>
+                    <h3 class="text-xl font-bold text-white" x-text="activeModalProduct.title"></h3>
+                </div>
+            </div>
+
+            <div class="space-y-4 text-xs text-slate-300">
+                <p x-text="activeModalProduct.description"></p>
+
+                <div class="grid grid-cols-2 gap-4 bg-industrial-950 p-4 rounded-xl border border-slate-800">
+                    <div>
+                        <span class="text-slate-500 block">Available Standard:</span>
+                        <span class="font-bold text-white" x-text="activeModalProduct.std"></span>
+                    </div>
+                    <div>
+                        <span class="text-slate-500 block">Material Grade:</span>
+                        <span class="font-bold text-white" x-text="activeModalProduct.material"></span>
+                    </div>
+                    <div>
+                        <span class="text-slate-500 block">Dimension Range:</span>
+                        <span class="font-bold text-white" x-text="activeModalProduct.sizes"></span>
+                    </div>
+                    <div>
+                        <span class="text-slate-500 block">Plating Finishes:</span>
+                        <span class="font-bold text-white">Natural Brass, Nickel, Tin, Chrome</span>
+                    </div>
+                </div>
+
+                <div>
+                    <h5 class="font-bold text-white mb-2">Key Highlights & Applications</h5>
+                    <ul class="list-disc list-inside space-y-1 text-slate-400">
+                        <li>High dimensional consistency for automatic assembly lines.</li>
+                        <li>Tested for pressure limits and corrosion resistance.</li>
+                        <li>Compliant with international threads (BSP, BSPT, NPT, Metric, UNC).</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="flex gap-3 pt-4 border-t border-slate-800">
+                <button @click="addToRfq(activeModalProduct.title); modalOpen = false;" class="flex-1 bg-brass-500 hover:bg-brass-400 text-industrial-950 font-bold py-3 rounded-xl text-xs transition-colors">
+                    Add to Request for Quote
+                </button>
+                <button @click="modalOpen = false" class="bg-slate-800 hover:bg-slate-700 text-slate-300 font-semibold px-5 py-3 rounded-xl text-xs transition-colors">
+                    Close
+                </button>
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+        function marutiApp() {
+            return {
+                mobileMenuOpen: false,
+                modalOpen: false,
+                activeModalProduct: {},
+                searchQuery: '',
+                selectedCategory: 'All',
+                
+                // Weight Calculator Variables
+                calcShape: 'round',
+                calcDiameter: 12,
+                calcHexWidth: 14,
+                calcWidth: 20,
+                calcThickness: 5,
+                calcLength: 1,
+                calcQty: 1000,
+
+                // RFQ Items Basket
+                rfqItems: [],
+                formSubmitted: false,
+                form: {
+                    name: '',
+                    company: '',
+                    email: '',
+                    phone: '',
+                    alloy: 'CW614N',
+                    quantity: '',
+                    message: ''
+                },
+
+                // Alloy Data
+                selectedAlloy: {
+                    code: 'CW614N',
+                    name: 'Free Cutting Brass (CuZn39Pb3)',
+                    standard: 'BS EN 12164 / IS 319 Grade 1',
+                    desc: 'The standard benchmark alloy for high-speed automatic lathe and CNC turning operations. Offers excellent machinability, crisp thread cutting, and good corrosion resistance.',
+                    composition: { Cu: '57.0 - 59.0%', Pb: '2.5 - 3.5%', Fe: '< 0.3%', Zn: 'Remainder' },
+                    features: ['Machinability Rating: 100%', 'Excellent for high-speed CNC turning', 'Clean chip breaking', 'Optimal thread pitch quality']
+                },
+
+                alloys: [
+                    {
+                        code: 'CW614N',
+                        name: 'Free Cutting Brass (CuZn39Pb3)',
+                        standard: 'BS EN 12164 / IS 319 Grade 1',
+                        desc: 'The standard benchmark alloy for high-speed automatic lathe and CNC turning operations. Offers excellent machinability, crisp thread cutting, and good corrosion resistance.',
+                        composition: { Cu: '57.0 - 59.0%', Pb: '2.5 - 3.5%', Fe: '< 0.3%', Zn: 'Remainder' },
+                        features: ['Machinability Rating: 100%', 'Excellent for high-speed CNC turning', 'Clean chip breaking', 'Optimal thread pitch quality']
+                    },
+                    {
+                        code: 'CW602N',
+                        name: 'DZR / Dezincification Resistant',
+                        standard: 'BS EN 12165 / CZ132',
+                        desc: 'Specially engineered to resist dezincification in aggressive water environments. Ideal for plumbing valves, water meter bodies, and potable water components.',
+                        composition: { Cu: '61.0 - 63.0%', Pb: '1.7 - 2.8%', As: '0.02 - 0.15%', Zn: 'Remainder' },
+                        features: ['Dezincification Resistant (DZR)', 'Potable Water Approved (NSF/WRAS)', 'High tensile strength', 'Resists stress corrosion cracking']
+                    },
+                    {
+                        code: 'CW511L',
+                        name: 'Lead-Free Eco Brass',
+                        standard: 'RoHS / REACH Compliant',
+                        desc: 'Environmentally safe lead-free brass developed to comply with strict drinking water and EU/US environmental health legislation (Lead < 0.1%).',
+                        composition: { Cu: '62.0 - 64.0%', Pb: '< 0.09%', Si: '0.2 - 0.7%', Zn: 'Remainder' },
+                        features: ['Lead content below 0.1%', 'Strict EU RoHS & California Prop 65 ready', 'Excellent hot forgeability', 'High mechanical strength']
+                    },
+                    {
+                        code: 'IS 6912',
+                        name: 'Forging Brass (FLB Grade)',
+                        standard: 'IS 6912 / BS 2872 CZ122',
+                        desc: 'Formulated specifically for hot stamping and die pressing applications. High ductility at elevated temperatures prevents cracking during pressing.',
+                        composition: { Cu: '58.0 - 60.0%', Pb: '1.5 - 2.5%', Fe: '< 0.3%', Zn: 'Remainder' },
+                        features: ['Optimal hot ductility', 'Dense pore-free forging results', 'Great surface finish', 'Suitable for gas & steam valves']
+                    }
+                ],
+
+                // Product Catalog Data
+                categories: ['All', 'Electrical', 'Cable Glands', 'Fasteners', 'Inserts', 'Plumbing'],
+
+                products: [
+                    {
+                        id: 1,
+                        title: 'Brass Neutral Link Bars',
+                        category: 'Electrical',
+                        icon: 'fa-solid fa-bolt',
+                        std: 'DIN / BS 5733',
+                        material: 'CW614N / Free Cutting',
+                        sizes: '4 Way to 120 Way (Up to 1 Meter)',
+                        description: 'Precision milled neutral and earth terminal bars used in switchgears, control panels, and distribution boards.'
+                    },
+                    {
+                        id: 2,
+                        title: 'Industrial Cable Glands (A2/CW/BW)',
+                        category: 'Cable Glands',
+                        icon: 'fa-solid fa-plug',
+                        std: 'BS 6121 / EN 50262',
+                        material: 'Brass CZ121 / Nickel Plated',
+                        sizes: 'M16 to M90 / PG Threads',
+                        description: 'Heavy-duty weatherproof and flameproof brass cable glands designed for armored and unarmored cable terminations.'
+                    },
+                    {
+                        id: 3,
+                        title: 'Brass Threaded Inserts for Plastic',
+                        category: 'Inserts',
+                        icon: 'fa-solid fa-grip-lines-vertical',
+                        std: 'Custom / ISO Metric',
+                        material: 'CW614N Lead Free',
+                        sizes: 'M2 to M16 Thread',
+                        description: 'Diamond, helical, and knurled ultrasonic or heat-staking inserts for injection molded plastic enclosures.'
+                    },
+                    {
+                        id: 4,
+                        title: 'Brass Hex Bolts & Screws',
+                        category: 'Fasteners',
+                        icon: 'fa-solid fa-screw',
+                        std: 'DIN 933 / ISO 4017',
+                        material: 'Free Cutting Brass',
+                        sizes: 'M3 to M24 / Length up to 150mm',
+                        description: 'High tensile non-magnetic brass hex bolts, machine screws, and washers for marine and electrical usage.'
+                    },
+                    {
+                        id: 5,
+                        title: 'DZR Brass Ball Valve Bodies',
+                        category: 'Plumbing',
+                        icon: 'fa-solid fa-faucet-drip',
+                        std: 'BS EN 13828 / WRAS',
+                        material: 'CW602N / DZR Brass',
+                        sizes: '1/2" to 2" BSP Thread',
+                        description: 'Hot forged and CNC precision machined brass ball valve components for water heating and HVAC applications.'
+                    },
+                    {
+                        id: 6,
+                        title: 'Brass Male & Female Adaptors',
+                        category: 'Plumbing',
+                        icon: 'fa-solid fa-gears',
+                        std: 'BSP / NPT / Metric',
+                        material: 'CW614N / CW602N',
+                        sizes: '1/8" to 3" Thread Diameter',
+                        description: 'Precision turned pipe fittings, hose nipples, reducers, and couplings with leak-proof thread tolerances.'
+                    },
+                    {
+                        id: 7,
+                        title: 'Brass Switch Terminal Pins',
+                        category: 'Electrical',
+                        icon: 'fa-solid fa-plug-circle-bolt',
+                        std: 'BS 1363 / IEC Standard',
+                        material: 'CW614N Brass',
+                        sizes: '5A, 13A, 15A Plug Pins',
+                        description: 'Solid and hollow brass electrical plug pins, socket terminals, and earth pins for global socket standards.'
+                    },
+                    {
+                        id: 8,
+                        title: 'Brass Sheet Metal Stamping Parts',
+                        category: 'Fasteners',
+                        icon: 'fa-solid fa-layer-group',
+                        std: 'DIN 125 / Custom Blueprint',
+                        material: 'CuZn37 / Sheet Brass',
+                        sizes: '0.2mm to 5.0mm Thickness',
+                        description: 'High-speed press stamped brass washers, clips, electrical contacts, and custom leaf springs.'
+                    }
+                ],
+
+                get filteredProducts() {
+                    return this.products.filter(p => {
+                        const matchesCategory = this.selectedCategory === 'All' || p.category === this.selectedCategory;
+                        const matchesSearch = p.title.toLowerCase().includes(this.searchQuery.toLowerCase()) || 
+                                              p.material.toLowerCase().includes(this.searchQuery.toLowerCase()) ||
+                                              p.category.toLowerCase().includes(this.searchQuery.toLowerCase());
+                        return matchesCategory && matchesSearch;
+                    });
+                },
+
+                openProductModal(product) {
+                    this.activeModalProduct = product;
+                    this.modalOpen = true;
+                },
+
+                addToRfq(itemTitle) {
+                    if (!this.rfqItems.includes(itemTitle)) {
+                        this.rfqItems.push(itemTitle);
+                    }
+                    const rfqSection = document.getElementById('rfq');
+                    if (rfqSection) {
+                        rfqSection.scrollIntoView({ behavior: 'smooth' });
+                    }
+                },
+
+                calculateWeight() {
+                    const density = 0.00000845; // kg/mm3
+                    let volume = 0; // mm3
+                    const lenMM = (this.calcLength || 0) * 1000;
+                    const qty = this.calcQty || 1;
+
+                    if (this.calcShape === 'round') {
+                        const radius = (this.calcDiameter || 0) / 2;
+                        volume = Math.PI * Math.pow(radius, 2) * lenMM;
+                    } else if (this.calcShape === 'hex') {
+                        // Area of Hexagon = 0.866 * (A/F)^2
+                        const af = this.calcHexWidth || 0;
+                        volume = 0.866 * Math.pow(af, 2) * lenMM;
+                    } else if (this.calcShape === 'flat') {
+                        volume = (this.calcWidth || 0) * (this.calcThickness || 0) * lenMM;
+                    }
+
+                    const weightPerPiece = volume * density;
+                    const totalWeight = weightPerPiece * qty;
+                    return totalWeight.toFixed(2);
+                },
+
+                submitRfq() {
+                    this.formSubmitted = true;
+                    setTimeout(() => {
+                        this.formSubmitted = false;
+                        this.form = { name: '', company: '', email: '', phone: '', alloy: 'CW614N', quantity: '', message: '' };
+                        this.rfqItems = [];
+                    }, 5000);
+                }
+            }
+        }
+    </script>
+</body>
+</html>
